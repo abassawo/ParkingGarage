@@ -29,18 +29,27 @@ public class ParkingGarage {
     @Override
     public String toString() {
         /*TODO - Modify the toString method to print every car in your Parking Garage*/
-        return "I'm a parking Garage";
+        return "Levels : " + internalMap.size() + " & " + internalMap.get(0).size() + " cars ";
     }
 
     public void parkCar(int number, AbstractCar car){
         /*TODO - Implement this method by retrieving the List of Cars,
          and adding the parameterizer car to it.*/
-
+        List<AbstractCar> cars = internalMap.get(number);
+        if(cars == null){
+            cars = new ArrayList<>();
+        }
+        cars.add(car);
+        internalMap.put(number, cars);
     }
 
     public void removeCar(int number, AbstractCar car){
           /*TODO - Implement this method by retrieving the List of Cars,
          and removing the parameterizer car from it.*/
+          List<AbstractCar> cars = internalMap.get(number);
+          if(cars != null){
+              cars.remove(car);
+          }
     }
 
 
